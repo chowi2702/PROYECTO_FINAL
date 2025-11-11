@@ -35,8 +35,8 @@ def limpiar_atipicos(X):
 #Cargamos el pipeline con el modelo
 import pickle
 filename = 'pipeline_modelo_final.pkl'
-pipeline = pickle.load(open(filename, 'rb'))
-pipeline
+pipeline_final = pickle.load(open(filename, 'rb'))
+pipeline_final
 
 #Cargamos los datos futuros
 #data = pd.read_csv("/content/housing_sample.csv")
