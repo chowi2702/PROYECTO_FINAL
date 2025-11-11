@@ -39,8 +39,8 @@ pipeline_final = pickle.load(open(filename, 'rb'))
 pipeline_final
 
 #Cargamos los datos futuros
-data = pd.read_csv("/content/housing_sample.csv")
-data.head()
+#data = pd.read_csv("/content/housing_sample.csv")
+#data.head()
 
 #Añadir las columnas de categoría de año (necesarias para el pipeline)
 if 'YearBuilt_Category' not in data.columns:
@@ -224,5 +224,5 @@ if st.button('Predecir precio'):
 Y_rf = pipeline_final.predict(data)
 print(Y_rf)
 
-data['Prediccion']=Y_rf
-data
+#data['Prediccion']=Y_rf
+#data
