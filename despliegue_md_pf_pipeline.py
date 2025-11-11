@@ -61,7 +61,6 @@ if 'YearRemodAdd_Category' not in data.columns:
         include_lowest=True
     )
 
-!pip install streamlit
 import streamlit as st
 
 st.title("Predicción de precios de casas usando mi pipeline")
