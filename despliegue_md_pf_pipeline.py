@@ -34,7 +34,7 @@ def limpiar_atipicos(X):
 
 #Cargamos el pipeline con el modelo
 import pickle
-filename = '/content/pipeline_modelo_final.pkl'
+filename = 'pipeline_modelo_final.pkl'
 pipeline = pickle.load(open(filename, 'rb'))
 pipeline
 
