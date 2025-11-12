@@ -199,26 +199,25 @@ entrada = {
     'SaleCondition': st.selectbox('SaleCondition', SaleCondition_opts)
 }
 
-data = pd.DataFrame([entrada])
-
-# Añadir columnas derivadas
-data['YearBuilt_Category'] = pd.cut(
-    data['YearBuilt'],
-    bins=[1872, 1920, 1950, 1980, 2010],
-    labels=["1872-1920", "1921-1950", "1951-1980", "1981-2010"],
-    right=True,
-    include_lowest=True
-)
-data['YearRemodAdd_Category'] = pd.cut(
-    data['YearRemodAdd'],
-    bins=[1950, 1980, 2010],
-    labels=["1950-1980", "1981-2010"],
-    right=True,
-    include_lowest=True
-)
-
 # Botón para predecir
 if st.button('Predecir precio'):
+    data = pd.DataFrame([entrada])
+    # Añadir columnas derivadas
+    data['YearBuilt_Category'] = pd.cut(
+        data['YearBuilt'],
+        bins=[1872, 1920, 1950, 1980, 2010],
+        labels=["1872-1920", "1921-1950", "1951-1980", "1981-2010"],
+        right=True,
+        include_lowest=True
+    )
+    data['YearRemodAdd_Category'] = pd.cut(
+        data['YearRemodAdd'],
+        bins=[1950, 1980, 2010],
+        labels=["1950-1980", "1981-2010"],
+        right=True,
+        include_lowest=True
+    )
+    
     pred = pipeline_final.predict(data)
     st.success(f"El precio estimado de la casa es: ${pred[0]:,.2f}")
     st.write("Datos ingresados:")
